@@ -1,0 +1,14 @@
+# Ignorer les fichiers DS_Store
+.DS_Store
+
+# Ignorer les dossiers node_modules
+node_modules/
+
+# Ignorer les fichiers de log
+*.log
+
+# Ignorer les fichiers de build
+dist/
+build/ 
+
+**/.DS_Store

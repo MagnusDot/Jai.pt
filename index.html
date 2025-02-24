@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Page d'Accueil</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+<body>
+    <img src="./src/img/cat2.png" alt="Chat géant" class="chat-image" id="chatImage">
+
+    <!-- Ajoutez l'élément audio -->
+    <audio id="petSound"></audio>
+
+    <script>
+        // Sélectionne l'image du chat et le son
+        const chatImage = document.getElementById('chatImage');
+        const petSound = document.getElementById('petSound');
+
+        // Liste des fichiers audio
+        const fartSounds = 12
+
+        // Fonction pour jouer un son de pet aléatoire
+        function playRandomFart() {
+            const randomIndex = Math.floor(Math.random() * fartSounds) + 1;
+            petSound.src = './src/audio/'+randomIndex+'.wav';
+            petSound.currentTime = 0; // Remet le son au début
+            petSound.play(); // Joue le son
+
+            // Ajoute la classe de tremblement
+            chatImage.classList.add('shake');
+            // Supprime la classe après l'animation
+            setTimeout(() => {
+                chatImage.classList.remove('shake');
+            }, 500); // Durée de l'animation
+        }
+
+        // Ajoute un écouteur d'événement pour le clic
+        chatImage.addEventListener('click', playRandomFart);
+    </script>
+    <script src="./src/js/script.js"></script>
+</body>
+</html> 
